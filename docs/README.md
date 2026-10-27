@@ -16,7 +16,7 @@ A comprehensive multi-platform prototype of the Hatebook social network interfac
 
 - **Page III (Home Dashboard):** Clean interface header reading dynamic state variables alongside an aligned matrix map linking to core features.
 
-![Page III](assets/home_page.png)
+| ![Home Dashboard I](assets/home_dashboard_dark.png) | ![Home Dashboard II](assets/home_dashboard_light.png) |
 
 - **In-Memory Data Bridge:** Uses system frame routers to execute navigation shifts across decoupled views while retaining user configurations safely in processing memory blocks.
 
