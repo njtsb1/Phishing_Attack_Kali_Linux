@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hatebook - Connect or Sign Up</title>
+    <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Top Preference Controls Header Bar -->
+    <header class="settings-bar" role="banner">
+        <div class="controls-container">
+            <!-- Language Dropdown Selector -->
+            <div class="control-group">
+                <label for="lang-select" class="sr-only">Select Language</label>
+                <select id="lang-select" class="styled-select">
+                    <option value="en-US" selected>English (US)</option>
+                    <option value="pt-BR">Português (BR)</option>
+                    <option value="es-ES">Español (ES)</option>
+                </select>
+            </div>
+            <!-- Dynamic Theme Toggle Button -->
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle light theme">
+                <span class="theme-icon" aria-hidden="true">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Dynamic Application Screen Stack -->
+    <main id="main-content" class="app-container">
+        
+        <!-- ================= PAGE II: LOGIN SCREEN ================= -->
+        <section id="page-login" class="auth-card view-section active-view" aria-labelledby="login-heading">
+            <div class="brand-header">
+                <h1 id="login-heading" class="brand-logo">hatebook</h1>
+                <div class="avatar-illustration" aria-hidden="true">
+                    <div class="illustration-art">
+                        <span class="art-thumb">👍</span>
+                        <span class="art-logo">h</span>
+                        <span class="art-photo">👤</span>
+                    </div>
+                </div>
+            </div>
+            
+            <form id="login-form" class="form-stack">
+                <div class="input-group">
+                    <input type="text" id="login-username" data-i18n-placeholder="loginUserPlaceholder" placeholder="Phone number or email address" required aria-required="true">
+                </div>
+                <div class="input-group">
+                    <input type="password" id="login-password" data-i18n-placeholder="loginPassPlaceholder" placeholder="Password" required aria-required="true">
+                </div>
+                <button type="submit" class="btn-primary" data-i18n="loginBtn">Log In</button>
+                <a href="#" class="link-forgotten" data-i18n="forgotPassword">Forgotten Password?</a>
+                <button type="button" id="go-to-register-link" class="link-back" data-i18n="backToRegister">Back</button>
+            </form>
+            
+            <div class="divider-container">
+                <span data-i18n="orText">OR</span>
+            </div>
+            
+            <div class="action-footer">
+                <button type="button" id="go-to-register-btn" class="btn-secondary" data-i18n="createNewAccount">Create New Account</button>
+            </div>
+        </section>
+
+        <!-- ================= PAGE I: REGISTRATION SCREEN ================= -->
+        <section id="page-register" class="auth-card view-section" aria-labelledby="register-heading">
+            <div class="register-header">
+                <h2 id="register-heading" data-i18n="registerTitle">Create a new account</h2>
+                <p class="subtitle" data-i18n="registerSubtitle">It's quick and easy.</p>
+            </div>
+            
+            <form id="register-form" class="form-stack">
+                <div class="input-row">
+                    <input type="text" id="reg-firstname" data-i18n-placeholder="firstNamePlaceholder" placeholder="First name" required aria-required="true">
+                    <input type="text" id="reg-surname" data-i18n-placeholder="surnamePlaceholder" placeholder="Surname" required aria-required="true">
+                </div>
+                <div class="input-group">
+                    <input type="text" id="reg-contact" data-i18n-placeholder="contactPlaceholder" placeholder="Mobile number or email address" required aria-required="true">
+                </div>
+                <div class="input-group">
+                    <input type="password" id="reg-password" data-i18n-placeholder="newPasswordPlaceholder" placeholder="New password" required aria-required="true">
+                </div>
+                
+                <!-- Date of Birth Matrix Selector -->
+                <fieldset class="form-fieldset">
+                    <legend data-i18n="dobLabel">Date of birth</legend>
+                    <div class="select-row">
+                        <select id="dob-day" aria-label="Day"></select>
+                        <select id="dob-month" aria-label="Month"></select>
+                        <select id="dob-year" aria-label="Year"></select>
+                    </div>
+                </fieldset>
+                
+                <!-- Gender Radio Group Selector -->
+                <fieldset class="form-fieldset">
+                    <legend data-i18n="genderLabel">Gender</legend>
+                    <div class="radio-row">
+                        <label class="radio-card">
+                            <span data-i18n="genderFemale">Female</span>
+                            <input type="radio" name="gender" value="Female" checked>
+                        </label>
+                        <label class="radio-card">
+                            <span data-i18n="genderMale">Male</span>
+                            <input type="radio" name="gender" value="Male">
+                        </label>
+                        <label class="radio-card">
+                            <span data-i18n="genderCustom">Custom</span>
+                            <input type="radio" name="gender" value="Custom">
+                        </label>
+                    </div>
+                </fieldset>
+                
+                <p class="disclaimer-text" data-i18n="termsDisclaimer">
+                    By clicking Sign Up, you agree to our Terms, Data Policy and Cookies Policy. You may receive SMS notifications from us.
+                </p>
+                
+                <button type="submit" class="btn-success" data-i18n="signUpBtn">Sign Up</button>
+                <button type="button" id="back-to-login" class="link-redirect" data-i18n="alreadyHaveAccount">Already have an account?</button>
+            </form>
+        </section>
+
+        <!-- ================= PAGE III: HOMEPAGE SCREEN ================= -->
+        <section id="page-home" class="home-view view-section" aria-labelledby="home-heading">
+            <header class="home-navbar">
+                <h2 id="home-heading" class="home-logo">hatebook</h2>
+                <div class="navbar-right">
+                    <span id="user-welcome" class="welcome-text">Hello, User</span>
+                    <button id="logout-btn" class="btn-logout" data-i18n="logOut">Log Out</button>
+                </div>
+            </header>
+            
+            <!-- Structural Classic Application Icon Grid Matrix -->
+            <div class="grid-container" role="navigation" data-i18n-aria-label="dashboardNav" aria-label="Dashboard Navigation">
+                <button class="grid-card" data-desc="Browse user timelines and posts.">
+                    <span class="card-icon" aria-hidden="true">📰</span>
+                    <span class="card-title" data-i18n="navNewsFeed">News Feed</span>
+                </button>
+                <button class="grid-card" data-desc="Update account settings and configurations.">
+                    <span class="card-icon" aria-hidden="true">👤</span>
+                    <span class="card-title" data-i18n="navProfile">Profile</span>
+                </button>
+                <button class="grid-card" data-desc="Connect and track networks connections.">
+                    <span class="card-icon" aria-hidden="true">👥</span>
+                    <span class="card-title" data-i18n="navFriends">Friends</span>
+                </button>
+                <button class="grid-card" data-desc="Review conversation text streams logs.">
+                    <span class="card-icon" aria-hidden="true">💬</span>
+                    <span class="card-title" data-i18n="navMessages">Messages</span>
+                </button>
+                <button class="grid-card" data-desc="Geolocate and discover local check-ins.">
+                    <span class="card-icon" aria-hidden="true">📍</span>
+                    <span class="card-title" data-i18n="navPlaces">Places</span>
+                </button>
+                <button class="grid-card" data-desc="Manage structured collective interests hub.">
+                    <span class="card-icon" aria-hidden="true">👨‍👩‍👧‍👦</span>
+                    <span class="card-title" data-i18n="navGroups">Groups</span>
+                </button>
+                <button class="grid-card" data-desc="Track calendars events schedules.">
+                    <span class="card-icon" aria-hidden="true">📅</span>
+                    <span class="card-title" data-i18n="navEvents">Events</span>
+                </button>
+                <button class="grid-card" data-desc="Review and upload images data streams.">
+                    <span class="card-icon" aria-hidden="true">📷</span>
+                    <span class="card-title" data-i18n="navPhotos">Photos</span>
+                </button>
+                <button class="grid-card" data-desc="Initiate immediate connection live channels.">
+                    <span class="card-icon" aria-hidden="true">⚡</span>
+                    <span class="card-title" data-i18n="navChat">Chat</span>
+                </button>
+            </div>
+
+            <!-- Structural Classic Application Icon Grid Matrix -->
+            <div class="grid-container" role="navigation" data-i18n-aria-label="dashboardNav" aria-label="Dashboard Navigation">
+                <button class="grid-card" data-desc="Browse user timelines and posts.">
+                    <span class="card-icon" aria-hidden="true">📰</span>
+                    <span class="card-title" data-i18n="navNewsFeed">News Feed</span>
+                </button>
+                <button class="grid-card" data-desc="Update account settings and configurations.">
+                    <span class="card-icon" aria-hidden="true">👤</span>
+                    <span class="card-title" data-i18n="navProfile">Profile</span>
+                </button>
+                <button class="grid-card" data-desc="Connect and track networks connections.">
+                    <span class="card-icon" aria-hidden="true">👥</span>
+                    <span class="card-title" data-i18n="navFriends">Friends</span>
+                </button>
+                <button class="grid-card" data-desc="Review conversation text streams logs.">
+                    <span class="card-icon" aria-hidden="true">💬</span>
+                    <span class="card-title" data-i18n="navMessages">Messages</span>
+                </button>
+                <button class="grid-card" data-desc="Geolocate and discover local check-ins.">
+                    <span class="card-icon" aria-hidden="true">📍</span>
+                    <span class="card-title" data-i18n="navPlaces">Places</span>
+                </button>
+                <button class="grid-card" data-desc="Manage structured collective interests hub.">
+                    <span class="card-icon" aria-hidden="true">👨‍👩‍👧‍👦</span>
+                    <span class="card-title" data-i18n="navGroups">Groups</span>
+                </button>
+                <button class="grid-card" data-desc="Track calendars events schedules.">
+                    <span class="card-icon" aria-hidden="true">📅</span>
+                    <span class="card-title" data-i18n="navEvents">Events</span>
+                </button>
+                <button class="grid-card" data-desc="Review and upload images data streams.">
+                    <span class="card-icon" aria-hidden="true">📷</span>
+                    <span class="card-title" data-i18n="navPhotos">Photos</span>
+                </button>
+                <button class="grid-card" data-desc="Initiate immediate connection live channels.">
+                    <span class="card-icon" aria-hidden="true">⚡</span>
+                    <span class="card-title" data-i18n="navChat">Chat</span>
+                </button>
+            </div>
+
+            <!-- Lower Action Bar for Home View -->
+            <div class="home-footer-bar">
+                <button class="footer-notification-btn">
+                    <span aria-hidden="true">🌐</span> <span data-i18n="notificationsTitle">Notifications</span>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Global Application Footer -->
+    <footer class="app-footer" role="contentinfo">
+        <div class="footer-languages">
+            <span>English (US)</span> · <span>Português (Brasil)</span> · <span>Español</span> · <span>Français (France)</span> · <span>Deutsch</span>
+        </div>
+        <div class="footer-copyright">
+            <small>Hatebook © 2026</small>
+        </div>
+    </footer>
+
+    <!-- Correct script integration pointing to the source directory -->
+    <script src="./src/script.js"></script>
+</body>
+</html>
+
