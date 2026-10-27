@@ -1,0 +1,12 @@
+# Prerequisites System Local Metadata Omissions
+.DS_Store
+Thumbs.db
+*.log
+
+# Editor Workspace Configurations Indexes
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
