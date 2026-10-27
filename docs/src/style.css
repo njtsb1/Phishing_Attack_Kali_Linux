@@ -1,0 +1,472 @@
+/* Custom Variable Framework System */
+:root {
+    --bg-app: #121212;
+    --bg-card: #1c1c1e;
+    --bg-header: #242526;
+    --text-primary: #e4e6eb;
+    --text-secondary: #b0b3b8;
+    --border-color: #3a3b3c;
+    --fb-blue: #1877f2;
+    --fb-blue-hover: #166fe5;
+    --fb-green: #00a400;
+    --fb-green-hover: #008f00;
+    --input-bg: #252627;
+    --font-stack: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+}
+
+[data-theme="light"] {
+    --bg-app: #f0f2f5;
+    --bg-card: #ffffff;
+    --bg-header: #3b5998;
+    --text-primary: #1c1e21;
+    --text-secondary: #606770;
+    --border-color: #dddfe2;
+    --input-bg: #f5f6f7;
+}
+
+/* Base Normalizations Rules */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s, color 0.3s;
+    overflow-x: hidden;
+}
+
+/* Accessibility Support Link */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 10px;
+    background: var(--fb-blue);
+    color: white;
+    padding: 10px;
+    z-index: 100;
+    text-decoration: none;
+    border-radius: 4px;
+}
+.skip-link:focus {
+    top: 10px;
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Preference Layout Header Controls */
+.settings-bar {
+    background-color: var(--bg-header);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+.controls-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.styled-select {
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+.theme-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: var(--bg-card);
+    transition: transform 0.1s ease;
+}
+.theme-btn:active {
+    transform: scale(0.95);
+}
+.theme-icon {
+    font-size: 1.1rem;
+}
+
+/* Dynamic Router View Layout Container */
+.app-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+.view-section {
+    display: none;
+    width: 100%;
+}
+.view-section.active-view {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Auth Cards Structural Mechanics Styles */
+.auth-card {
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 25px;
+    width: 100%;
+    max-width: 430px;
+    border: 1px solid var(--border-color);
+}
+
+/* Brand Display & Vectors Elements */
+.brand-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.brand-logo {
+    color: var(--fb-blue);
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+[data-theme="light"] #page-login .brand-logo {
+    color: var(--fb-blue);
+}
+.avatar-illustration {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+.illustration-art {
+    background-color: var(--fb-blue);
+    width: 100%;
+    max-width: 360px;
+    height: 130px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.art-thumb, .art-photo {
+    font-size: 2.5rem;
+    opacity: 0.8;
+}
+.art-logo {
+    font-size: 5rem;
+    font-weight: bold;
+    color: white;
+}
+
+/* Form Structural Elements Styles */
+.form-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.input-group input, .input-row input {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+}
+.input-group input:focus, .input-row input:focus {
+    border-color: var(--fb-blue);
+    box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
+}
+.input-row {
+    display: flex;
+    gap: 12px;
+}
+
+/* Input Fields Groups Elements Styles */
+.form-fieldset {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 12px;
+}
+.form-fieldset legend {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--text-secondary);
+    padding: 0 6px;
+}
+.select-row {
+    display: flex;
+    gap: 10px;
+}
+.select-row select {
+    flex: 1;
+    padding: 10px;
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    outline: none;
+}
+.radio-row {
+    display: flex;
+    gap: 10px;
+}
+.radio-card {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    background-color: var(--input-bg);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Control Interfaces Buttons Elements Styles */
+button {
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-primary {
+    background-color: var(--fb-blue);
+    color: white;
+}
+.btn-primary:hover { background-color: var(--fb-blue-hover); }
+
+.btn-secondary {
+    background-color: var(--border-color);
+    color: var(--text-primary);
+    font-size: 1rem;
+    align-self: center;
+    padding: 12px 24px;
+}
+.btn-secondary:hover { opacity: 0.9; }
+
+.btn-success {
+    background-color: var(--fb-green);
+    color: white;
+    width: 60%;
+    align-self: center;
+}
+.btn-success:hover { background-color: var(--fb-green-hover); }
+
+/* Interface Links Navigation Modifiers Styles */
+.link-forgotten {
+    color: var(--fb-blue);
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.95rem;
+    margin: 5px 0;
+}
+.link-forgotten:hover { text-decoration: underline; }
+
+.link-back, .link-redirect {
+    background: none;
+    color: var(--fb-blue);
+    font-size: 0.95rem;
+    font-weight: normal;
+    padding: 0;
+}
+.link-back:hover, .link-redirect:hover { text-decoration: underline; }
+.link-back { color: var(--text-secondary); }
+
+.divider-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+.divider-container::before, .divider-container::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+}
+.divider-container:not(:empty)::before { margin-right: .5em; }
+.divider-container:not(:empty)::after { margin-left: .5em; }
+
+.action-footer {
+    display: flex;
+    justify-content: center;
+}
+
+/* Page I Registration Formatting Rules Styles */
+.register-header {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+.register-header h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.register-header .subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-top: 4px;
+}
+.disclaimer-text {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* ================= PAGE III: HOMEPAGE SCREEN STYLES ================= */
+.home-view {
+    max-width: 960px;
+    width: 100%;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+.home-navbar {
+    background-color: var(--bg-header);
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+.home-logo {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+}
+[data-theme="light"] .home-navbar .home-logo {
+    color: white;
+}
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.welcome-text {
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+[data-theme="light"] .welcome-text {
+    color: white;
+}
+.btn-logout {
+    font-size: 0.9rem;
+    padding: 6px 14px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+.btn-logout:hover { background-color: rgba(255, 255, 255, 0.25); }
+
+/* Classic Operations Application Grid Modules Styles */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px;
+    background-color: var(--bg-app);
+}
+.grid-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 25px 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.grid-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.card-icon {
+    font-size: 2.2rem;
+}
+.card-title {
+    color: var(--fb-blue);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.home-footer {
+    border-top: 1px solid var(--border-color);
+}
+.footer-notification-bar {
+    width: 100%;
+    background-color: var(--bg-header);
+    color: white;
+    font-size: 1rem;
+    padding: 12px;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Responsive Adaptive Queries Layout Rules */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .app-container {
+        padding: 10px;
+    }
+    .auth-card {
+        padding: 20px 15px;
+    }
+    .input-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 12px;
+        padding: 15px;
+    }
+    .grid-card {
+    flex-direction: row;
+    padding: 15px;
+    justify-content: flex-start;
+    gap: 20px;
+    }
+    .card-icon {
+    font-size: 1.6rem;
+    }
+}
