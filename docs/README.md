@@ -12,7 +12,7 @@ A comprehensive multi-platform prototype of the Hatebook social network interfac
 
 - **Page II (Login Screen):** Custom dark-themed panel equipped with focus control placeholder clearance actions and hidden secure string masking parameters.
 
-| ![Login Screen I](assets/login_screen_dark.png) |  |
+| ![Login Screen I](assets/login_screen_dark.png) | ![Login Screen II](assets/login_screen_light.png) |
 
 - **Page III (Home Dashboard):** Clean interface header reading dynamic state variables alongside an aligned matrix map linking to core features.
 
