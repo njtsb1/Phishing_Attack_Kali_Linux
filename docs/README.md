@@ -7,7 +7,7 @@ A comprehensive multi-platform prototype of the Hatebook social network interfac
 ### Desktop Implementation (Python & Tkinter)
 
 - **Page I (Registration Screen):** Multi-entry profile registry featuring integrated selection comboboxes and selection parameters.
-![Page I](assets/create_account.png)
+| ![Registration Screen I](assets/create_account_dark.png) |  |
 
 - **Page II (Login Screen):** Custom dark-themed panel equipped with focus control placeholder clearance actions and hidden secure string masking parameters.
 ![Page II](assets/login_page_hatebook.png)
